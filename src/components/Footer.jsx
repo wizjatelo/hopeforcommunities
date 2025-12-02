@@ -6,7 +6,7 @@ function Footer() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('Thank you for subscribing! You will receive updates from Hopes for Communities.')
+    alert('Thank you for subscribing! You will receive updates from Hope  for Communities.')
     setEmail('')
   }
 
@@ -15,7 +15,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Hopes for Communities</h3>
+            <h3 className="text-xl font-bold mb-4">Hope  for Communities</h3>
             <p className="text-gray-400 text-sm">
               Transforming lives through education, mentorship, and spiritual growth.
             </p>
@@ -28,15 +28,16 @@ function Footer() {
               <li><Link to="/programs" className="text-gray-400 hover:text-white">Programs</Link></li>
               <li><a href="/impact" className="text-gray-400 hover:text-white">Impact</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-white">Contact</a></li>
+              <li><Link to="/album" className="text-gray-400 hover:text-white">Albums</Link></li> {/* Added Album link */}
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-3">Get Involved</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/get-involved" className="text-gray-400 hover:text-white">Donate</Link></li>
-              <li><a href="/get-involved#sponsor" className="text-gray-400 hover:text-white">Sponsor a Child</a></li>
-              <li><a href="/get-involved#volunteer" className="text-gray-400 hover:text-white">Volunteer</a></li>
+              <li><Link to="/GetInvolved" className="text-gray-400 hover:text-white">Donate</Link></li>
+              <li><a href="/GetInvolved#sponsor" className="text-gray-400 hover:text-white">Sponsor a Child</a></li>
+              <li><a href="/GetInvolved#volunteer" className="text-gray-400 hover:text-white">Volunteer</a></li>
               <li><a href="/partners" className="text-gray-400 hover:text-white">Partner With Us</a></li>
             </ul>
           </div>
@@ -58,7 +59,7 @@ function Footer() {
         </div>
         
         <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>© 2025 Hopes for Communities. All rights reserved.</p>
+          <p>© 2025 Hope  for Communities. All rights reserved.</p>
           <div className="mt-2 space-x-4">
             <a href="/legal" className="hover:text-white">Privacy Policy</a>
             <a href="/legal#terms" className="hover:text-white">Terms of Use</a>

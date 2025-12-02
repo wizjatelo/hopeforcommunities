@@ -19,7 +19,7 @@ function Header() {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <Heart className="w-8 h-8 text-primary" fill="currentColor" />
-            <span className="text-xl font-bold text-text-dark">Hopes for Communities</span>
+            <span className="text-xl font-bold text-text-dark">Hope for Communities</span>
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-8">
