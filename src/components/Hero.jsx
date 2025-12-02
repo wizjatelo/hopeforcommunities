@@ -6,7 +6,7 @@ function Hero() {
     <section 
       className="relative bg-cover bg-center py-32 px-4"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-image.JPG')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}

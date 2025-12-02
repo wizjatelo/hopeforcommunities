@@ -34,6 +34,7 @@ function Home() {
         <Hero />
         <StatsBar />
         
+        {/* WHAT WE DO */}
         <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -50,6 +51,7 @@ function Home() {
           </div>
         </section>
 
+        {/* QUOTE + IMAGE */}
         <section className="py-20 px-4 bg-primary text-white">
           <div className="max-w-4xl mx-auto text-center">
             <Quote className="w-12 h-12 mx-auto mb-6 opacity-50" />
@@ -57,6 +59,14 @@ function Home() {
               "Thanks to Hopes for Communities, I can now go to school and dream of becoming a teacher to help others like me."
             </p>
             <p className="text-lg opacity-90">— Grace, Student Beneficiary</p>
+
+            {/* Circular Image with Border */}
+            <img 
+              src="/images/grace-story.jpg"
+              alt="Grace beneficiary"
+              className="mx-auto mt-6 rounded-full shadow-lg w-40 h-40 object-cover border-4 border-white"
+            />
+
             <Link to="/impact" className="inline-block mt-8 btn-secondary">
               Read Success Stories
             </Link>
