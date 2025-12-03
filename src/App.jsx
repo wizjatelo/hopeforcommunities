@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import GetInvolved from "./pages/GetInvolved";
 import Programs from "./pages/Programs";
+import Impact from "./pages/Impact";
 
 import AlbumPage from "./pages/AlbumPage";
 import PartnersPage from "./pages/PartnersPage";
@@ -22,7 +23,11 @@ function App() {
           <Route path="/programs" element={<Programs />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/album" element={<AlbumPage />} />
+<<<<<<< HEAD
           < Route path="/impact" element={<Impact />} />
+=======
+          <Route path="/impact" element={<Impact />} />
+>>>>>>> 69c8091e651dc2d7a01e8a22330086222fc23cb4
         </Routes>
       </div>
     </Router>
