@@ -14,7 +14,7 @@ import PartnersPage from "./pages/PartnersPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/hopeforcommunities">
       <div style={{ padding: "20px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function App() {
           <Route path="/programs" element={<Programs />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/album" element={<AlbumPage />} />
-          < Route path="/impact" element={<Impact />} />
+          <Route path="/impact" element={<Impact />} />
         </Routes>
       </div>
     </Router>

@@ -62,7 +62,7 @@ function Home() {
 
             {/* Circular Image with Border */}
             <img 
-              src="/images/grace-story.jpg"
+              src={`${import.meta.env.BASE_URL}images/grace-story.jpg`}
               alt="Grace beneficiary"
               className="mx-auto mt-6 rounded-full shadow-lg w-40 h-40 object-cover border-4 border-white"
             />
