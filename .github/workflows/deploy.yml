@@ -9,25 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+  # Inside .github/workflows/deploy.yml
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4  # Updated to v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4 # Updated to v4
+
+      - name: Install and Build
+        run: npm install && npm run build
+
+      - name: Upload Artifacts
+        # This is the line that was failing
+        uses: actions/upload-pages-artifact@v3 # Updated to v3 (v3 of this action uses artifact v4 internally)
         with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build project
-        run: npm run build
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./dist
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4 # Updated to v4
 
   deploy:
     needs: build
