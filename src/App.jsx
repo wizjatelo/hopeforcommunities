@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import GetInvolved from "./pages/GetInvolved";
 import Programs from "./pages/Programs";
-import Impact from "./pages/Impact";
+import Impact from "./pages/impact";
 
 import AlbumPage from "./pages/AlbumPage";
 import PartnersPage from "./pages/PartnersPage";
