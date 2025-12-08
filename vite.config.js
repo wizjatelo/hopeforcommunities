@@ -3,10 +3,14 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/hopeforcommunities/', // Matches your repo name exactly
+  base: '/',
+  server: {
+    port: 3000,
+    open: true
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    emptyOutDir: true, // Clears the folder before rebuilding
+    emptyOutDir: true
   }
 })
