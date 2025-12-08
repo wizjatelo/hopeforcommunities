@@ -14,7 +14,7 @@ import PartnersPage from "./pages/PartnersPage";
 
 function App() {
   return (
-    <Router basename="/hopeforcommunities">
+    <Router>
       <div style={{ padding: "20px" }}>
         <Routes>
           <Route path="/" element={<Home />} />

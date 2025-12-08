@@ -35,9 +35,9 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-3">Get Involved</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/GetInvolved" className="text-gray-400 hover:text-white">Donate</Link></li>
-              <li><a href="/GetInvolved#sponsor" className="text-gray-400 hover:text-white">Sponsor a Child</a></li>
-              <li><a href="/GetInvolved#volunteer" className="text-gray-400 hover:text-white">Volunteer</a></li>
+              <li><Link to="/getinvolved" className="text-gray-400 hover:text-white">Donate</Link></li>
+              <li><a href="/getinvolved#sponsor" className="text-gray-400 hover:text-white">Sponsor a Child</a></li>
+              <li><a href="/getinvolved#volunteer" className="text-gray-400 hover:text-white">Volunteer</a></li>
               <li><a href="/partners" className="text-gray-400 hover:text-white">Partner With Us</a></li>
             </ul>
           </div>

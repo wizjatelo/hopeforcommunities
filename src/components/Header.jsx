@@ -10,7 +10,7 @@ function Header() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Programs', href: '/programs' },
-    { name: 'Get Involved', href: '/GetInvolved' },
+    { name: 'Get Involved', href: '/getinvolved' },
   ]
 
   return (
@@ -36,7 +36,7 @@ function Header() {
                 {link.name}
               </Link>
             ))}
-            <Link to="/GetInvolved" className="btn-primary">
+            <Link to="/getinvolved" className="btn-primary">
               Donate Now
             </Link>
           </nav>
@@ -66,7 +66,7 @@ function Header() {
               </Link>
             ))}
             <Link 
-              to="/GetInvolved" 
+              to="/getinvolved" 
               onClick={() => setIsOpen(false)}
               className="block mt-4 btn-primary text-center"
             >
