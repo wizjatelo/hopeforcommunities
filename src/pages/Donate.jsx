@@ -4,70 +4,34 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Donate = () => {
+  // --- STATE VARIABLES (Consolidated from both blocks) ---
   const [selectedAmount, setSelectedAmount] = useState('');
   const [customAmount, setCustomAmount] = useState('');
-  const [selectedCause, setSelectedCause] = useState('general');
   const [paymentMethod, setPaymentMethod] = useState('mpesa');
-  const [donorInfo, setDonorInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    anonymous: false
-  });
+  const [donorInfo, setDonorInfo] = useState({ name: '', email: '', phone: '', anonymous: false });
   const [isProcessing, setIsProcessing] = useState(false);
+  const [mpesaMessage, setMpesaMessage] = useState('');
+  const [selectedCause, setSelectedCause] = useState('general'); // Added to fix missing state for cause selection
 
+  // --- CONSTANTS (Consolidated from the second block) ---
   const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000];
   
   const causes = [
-    {
-      id: 'general',
-      name: 'Where Most Needed',
-      description: 'Support our most urgent needs',
-      icon: <Heart className="w-6 h-6" />
-    },
-    {
-      id: 'education',
-      name: 'School Fees Support',
-      description: 'Help children access quality education',
-      icon: <GraduationCap className="w-6 h-6" />
-    },
-    {
-      id: 'mentorship',
-      name: 'Mentorship Programs',
-      description: 'Support guidance and life skills training',
-      icon: <Users className="w-6 h-6" />
-    },
-    {
-      id: 'center',
-      name: 'Educational Center Project',
-      description: 'Help build our learning facility',
-      icon: <Home className="w-6 h-6" />
-    }
+    { id: 'general', name: 'Where Most Needed', description: 'Support our most urgent needs', icon: <Heart className="w-6 h-6" /> },
+    { id: 'education', name: 'School Fees Support', description: 'Help children access quality education', icon: <GraduationCap className="w-6 h-6" /> },
+    { id: 'mentorship', name: 'Mentorship Programs', description: 'Support guidance and life skills training', icon: <Users className="w-6 h-6" /> },
+    { id: 'center', name: 'Educational Center Project', description: 'Help build our learning facility', icon: <Home className="w-6 h-6" /> }
   ];
 
   const paymentMethods = [
-    {
-      id: 'mpesa',
-      name: 'M-Pesa',
-      description: 'Pay via M-Pesa STK Push',
-      icon: <Smartphone className="w-6 h-6" />,
-      details: 'Paybill: 247247, Account: HOPE2024'
-    },
-    {
-      id: 'bank',
-      name: 'Bank Transfer',
-      description: 'Direct bank to bank transfer',
-      icon: <Building className="w-6 h-6" />,
-      details: 'Account: 1234567890, Bank: KCB Bank'
-    },
-    {
-      id: 'card',
-      name: 'Credit/Debit Card',
-      description: 'International payments accepted',
-      icon: <CreditCard className="w-6 h-6" />,
-      details: 'Secure payment via Stripe'
-    }
+    { id: 'mpesa', name: 'M-Pesa', description: 'Pay via M-Pesa STK Push', icon: <Smartphone className="w-6 h-6" />, details: 'Paybill: 247247, Account: HOPE2024' },
+    { id: 'bank', name: 'Bank Transfer', description: 'Direct bank to bank transfer', icon: <Building className="w-6 h-6" />, details: 'Account: 1234567890, Bank: KCB Bank' },
+    { id: 'card', name: 'Credit/Debit Card', description: 'International payments accepted', icon: <CreditCard className="w-6 h-6" />, details: 'Secure payment via Stripe' }
   ];
+
+  // --- HANDLERS ---
+
+  const getFinalAmount = () => customAmount || selectedAmount;
 
   const handleAmountSelect = (amount) => {
     setSelectedAmount(amount.toString());
@@ -87,38 +51,55 @@ const Donate = () => {
     }));
   };
 
-  const getFinalAmount = () => {
-    return customAmount || selectedAmount;
-  };
-
+  // Using the M-Pesa API call logic from the first code block
   const handleDonate = async (e) => {
     e.preventDefault();
     const amount = getFinalAmount();
-    
+
     if (!amount || amount <= 0) {
       alert('Please select or enter a valid donation amount');
       return;
     }
-
-    if (!donorInfo.name || !donorInfo.email) {
-      alert('Please fill in your name and email');
+    // Check for M-Pesa requirements
+    if (paymentMethod === 'mpesa' && (!donorInfo.name || !donorInfo.email || !donorInfo.phone)) {
+      alert('Please fill in your name, email, and phone number for M-Pesa payment.');
+      return;
+    }
+    if (paymentMethod !== 'mpesa') {
+      alert('Currently only M-Pesa payments are enabled. Please select M-Pesa.');
       return;
     }
 
     setIsProcessing(true);
+    setMpesaMessage('');
 
-    // Simulate payment processing
-    setTimeout(() => {
+    try {
+      const response = await fetch('http://localhost:5000/mpesa/stkpush', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: donorInfo.phone, amount })
+      });
+
+      const data = await response.json();
+
+      if (data.ResponseCode === '0') {
+        setMpesaMessage('✅ STK Push sent! Check your phone for M-Pesa PIN prompt.');
+      } else {
+        setMpesaMessage(`❌ M-Pesa request failed: ${data.errorMessage || 'Check console for details.'}`);
+        console.error('M-Pesa API Response:', data);
+      }
+    } catch (error) {
+      console.error('Donation Error:', error);
+      setMpesaMessage('❌ An error occurred while processing the payment.');
+    } finally {
       setIsProcessing(false);
-      alert(`Thank you for your donation of KES ${amount}! You will receive a confirmation email shortly. Note: This is a demo - no actual payment was processed.`);
-      
-      // Reset form
-      setSelectedAmount('');
-      setCustomAmount('');
-      setDonorInfo({ name: '', email: '', phone: '', anonymous: false });
-    }, 2000);
+      // Decide if you want to reset the form immediately or wait for confirmation
+      // For a real M-Pesa flow, you might want to keep the form state until the payment is confirmed via webhook.
+      // For now, let's keep the user on the page to see the message.
+    }
   };
 
+  // --- JSX RETURN (Used the more complete structure from the second block) ---
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -141,6 +122,13 @@ const Donate = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <form onSubmit={handleDonate} className="bg-white rounded-lg shadow-md overflow-hidden">
               
+              {/* Display M-Pesa message */}
+              {mpesaMessage && (
+                <div className={`p-4 text-center font-medium ${mpesaMessage.startsWith('✅') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {mpesaMessage}
+                </div>
+              )}
+
               {/* Select Cause */}
               <div className="p-8 border-b border-gray-200">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Choose Your Cause</h2>
@@ -253,6 +241,11 @@ const Donate = () => {
                     </label>
                   ))}
                 </div>
+                {paymentMethod !== 'mpesa' && (
+                  <p className="mt-4 text-sm text-red-500 font-medium">
+                    Note: Only M-Pesa is currently enabled for live payments. Other methods are for display.
+                  </p>
+                )}
               </div>
 
               {/* Donor Information */}
@@ -291,7 +284,7 @@ const Donate = () => {
                   </div>
                   <div className="md:col-span-2">
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number (Optional)
+                      Phone Number (Required for M-Pesa) *
                     </label>
                     <input
                       type="tel"
@@ -299,8 +292,9 @@ const Donate = () => {
                       name="phone"
                       value={donorInfo.phone}
                       onChange={handleInputChange}
+                      required={paymentMethod === 'mpesa'}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                      placeholder="+254 700 000 000"
+                      placeholder="+254 7XX XXX XXX"
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -348,7 +342,7 @@ const Donate = () => {
 
                 <button
                   type="submit"
-                  disabled={isProcessing || !getFinalAmount() || !donorInfo.name || !donorInfo.email}
+                  disabled={isProcessing || !getFinalAmount() || !donorInfo.name || !donorInfo.email || (paymentMethod === 'mpesa' && !donorInfo.phone)}
                   className="w-full bg-cyan-600 hover:bg-cyan-700 disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
