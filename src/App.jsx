@@ -6,9 +6,17 @@ import About from "./pages/About";
 import GetInvolved from "./pages/GetInvolved";
 import Programs from "./pages/Programs";
 import Impact from "./pages/Impact";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
+import Donate from "./pages/Donate";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 import AlbumPage from "./pages/AlbumPage";
 import PartnersPage from "./pages/PartnersPage";
+
+import ChatbotWidget from "./components/ChatbotWidget";
+import FloatingContactButton from "./components/FloatingContactButton";
   
  
 
@@ -24,7 +32,14 @@ function App() {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/album" element={<AlbumPage />} />
           <Route path="/impact" element={<Impact />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
+        <ChatbotWidget />
+        <FloatingContactButton />
       </div>
     </Router>
   );
