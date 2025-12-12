@@ -13,7 +13,8 @@ function Header() {
         { name: 'Overview', href: '/about' },
         { name: 'Our Story', href: '/about#story' },
         { name: 'Leadership Team', href: '/about#team' },
-        { name: 'Partnerships', href: '/partners' }
+        { name: 'Partnerships', href: '/partners' },
+        { name: 'Contact Us', href: '/contact' }
       ]
     },
     {
@@ -49,7 +50,8 @@ function Header() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Programs', href: '/programs' },
-    { name: 'Get Involved', href: '/getinvolved' }
+    { name: 'Get Involved', href: '/getinvolved' },
+    {name: 'Contact Us', href: '/contact'}
   ]
 
   return (
@@ -171,7 +173,7 @@ function Header() {
                   Donate Now
                 </Link>
                 <a
-                  href="tel:+254719241159"
+                  href="tel:+254700168665"
                   className="flex items-center justify-center text-gray-700 hover:text-cyan-600 transition-colors text-sm py-2"
                 >
                   <Phone className="w-4 h-4 mr-2" />
