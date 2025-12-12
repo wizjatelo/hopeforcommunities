@@ -25,14 +25,12 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Create form data object for FormSubmit
     const payload = new FormData();
     payload.append("name", formData.name);
     payload.append("email", formData.email);
     payload.append("subject", formData.subject);
     payload.append("message", formData.message);
 
-    // FormSubmit hidden fields
     payload.append("_captcha", "false");
     payload.append("_template", "table");
     payload.append("_subject", "New Contact Message");
@@ -78,8 +76,8 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      details: "Nairobi, Kenya",
-      action: null
+      details: "Nyahera, Kisumu",
+      action: "https://maps.google.com/?q=-0.0717,34.6715"
     }
   ];
 
@@ -88,16 +86,12 @@ const Contact = () => {
       <Header />
 
       <main className="pt-20">
-        {/* YOUR ORIGINAL UI (unchanged) */}
-        
-        {/* Hero Section */}
+
         <section className="bg-gradient-to-r from-cyan-600 to-cyan-800 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                  Get In Touch
-                </h1>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">Get In Touch</h1>
                 <p className="text-xl text-cyan-100 mb-8 leading-relaxed">
                   We'd love to hear from you...
                 </p>
@@ -124,7 +118,6 @@ const Contact = () => {
               <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8">
                 <h3 className="text-2xl font-bold mb-6">Quick Contact</h3>
 
-                {/* Quick info unchanged */}
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="w-6 h-6 mr-4 text-cyan-200" />
@@ -135,6 +128,7 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
+
                   <div className="flex items-center">
                     <Phone className="w-6 h-6 mr-4 text-cyan-200" />
                     <div>
@@ -144,13 +138,15 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
+
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 mr-4 text-cyan-200" />
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-cyan-200">Nairobi, Kenya</p>
+                      <p className="text-cyan-200">Nyahera, Kisumu</p>
                     </div>
                   </div>
+
                   <div className="flex items-center">
                     <MessageCircle className="w-6 h-6 mr-4 text-cyan-200" />
                     <div>
@@ -173,26 +169,23 @@ const Contact = () => {
         </section>
 
 
-        {/* Contact Info Cards */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg p-8 text-center border-t-4 border-cyan-500">
-                  <div className="text-cyan-600 mb-6 flex justify-center">
-                    {info.icon}
-                  </div>
+                  <div className="text-cyan-600 mb-6 flex justify-center">{info.icon}</div>
                   <h3 className="text-xl font-semibold">{info.title}</h3>
                   <p className="text-gray-600 mb-6 text-lg">{info.details}</p>
                   {info.action && (
                     <a
                       href={info.action}
                       className="inline-flex items-center bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold"
-                      target={info.action.startsWith('http') ? '_blank' : undefined}
-                      rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Contact Now
+                      View Location
                     </a>
                   )}
                 </div>
@@ -200,7 +193,6 @@ const Contact = () => {
             </div>
 
 
-            {/* Contact Form */}
             <div className="max-w-3xl mx-auto">
               <div className="bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-2xl font-bold text-center mb-6">Send Us a Message</h2>
