@@ -22,7 +22,7 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
-          <Link to="/get-involved" className="btn-primary text-lg">
+          <Link to="/donate" className="btn-primary text-lg">
             Donate Now
           </Link>
 

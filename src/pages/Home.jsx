@@ -90,10 +90,10 @@ function Home() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Media Center</h3>
                     <p className="text-cyan-100 mb-4 text-sm">
-                      Media contacts and resources for those sharing our journey.
+                      Treasured moments during  our journey.
                     </p>
                     <Link 
-                      to="/contact" 
+                      to="/album" 
                       className="inline-flex items-center text-white hover:text-cyan-200 font-medium"
                     >
                       Go <ArrowRight className="w-4 h-4 ml-1" />
