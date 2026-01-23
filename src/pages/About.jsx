@@ -30,22 +30,22 @@ function About() {
 
   const leadership = [
     {
-      name: "Sarah Wanjiku",
+      name: "susan Ochieng",
       role: "Executive Director",
-      image: "/images/grace-story.jpg",
-      bio: "Sarah brings over 15 years of experience in community development and education advocacy."
+      image: "/images/susan.jpg",
+      bio: "Susan brings over 15 years of experience in community development and education advocacy."
     },
     {
-      name: "James Mwangi", 
+      name: "Mrk Wisdom", 
       role: "Program Director",
-      image: "/images/john-story.jpg",
-      bio: "James oversees all program implementation and community partnerships across our service areas."
+      image: "/images/mark.jpg",
+      bio: "Mark oversees all program implementation and community partnerships across our service areas."
     },
     {
-      name: "Grace Akinyi",
+      name: "Irene Paul",
       role: "Education Coordinator", 
-      image: "/images/mary-story.jpg",
-      bio: "Grace manages our education programs and works directly with schools and families."
+      image: "/images/irene.jpg",
+      bio: "Paul manages our education programs and works directly with schools and families."
     }
   ]
 

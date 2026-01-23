@@ -116,23 +116,23 @@ function Footer() {
                 <div className="flex items-start space-x-2 text-gray-400">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p>Nairobi, Kenya</p>
-                    <p>P.O. Box 12345-00100</p>
+                    <p>Kisumu, Kenya</p>
+                    <p>P.O. Box 8078-400100</p>
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-2 text-gray-400">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:info@hopeforcommunities.co.ke" className="hover:text-white transition-colors">
-                  info@hopeforcommunities.co.ke
+                <a href="mailto:hopeforcommunities254@gmail.com" className="hover:text-white transition-colors">
+                  hopeforcommunities254@gmail.com
                 </a>
               </div>
               
               <div className="flex items-center space-x-2 text-gray-400">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+254700000000" className="hover:text-white transition-colors">
-                  +254 700 000 000
+                <a href="tel:+254700168665" className="hover:text-white transition-colors">
+                  +254 700 168 665
                 </a>
               </div>
             </div>

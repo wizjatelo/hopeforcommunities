@@ -64,14 +64,14 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: "+254  719241159",
-      action: "tel:+254719241159"
+      details: "+254  791771087",
+      action: "tel:+254791771087"
     },
     {
       icon: <MessageCircle className="w-6 h-6" />,
       title: "WhatsApp",
       details: "Chat with us directly",
-      action: "https://wa.me/254719241159"
+      action: "https://wa.me/254791771087"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -97,14 +97,14 @@ const Contact = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="tel:+254719241159"
+                    href="tel:+254791771087"
                     className="inline-flex items-center bg-white text-cyan-600 px-8 py-4 rounded-lg font-semibold"
                   >
                     <Phone className="w-5 h-5 mr-3" />
-                    Call Now: +254 719241159
+                    Call Now: +254 791771087
                   </a>
                   <a
-                    href="https://wa.me/254719241159"
+                    href="https://wa.me/254791771087"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-green-500 text-white px-8 py-4 rounded-lg font-semibold"
@@ -124,7 +124,7 @@ const Contact = () => {
                     <div>
                       <p className="font-medium">Email</p>
                       <a href="mailto:hopeforcommunities254@gmail.com" className="text-cyan-200 hover:text-white">
-                        info@hopeforcommunities.co.ke
+                        hopeforcommunities254@gmail.com
                       </a>
                     </div>
                   </div>
@@ -133,8 +133,8 @@ const Contact = () => {
                     <Phone className="w-6 h-6 mr-4 text-cyan-200" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a href="tel:+254719241159" className="text-cyan-200 hover:text-white">
-                        +254 7192411159
+                      <a href="tel:+254791771087" className="text-cyan-200 hover:text-white">
+                        +254 791771087
                       </a>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                     <div>
                       <p className="font-medium">WhatsApp</p>
                       <a 
-                        href="https://wa.me/254719241159" 
+                        href="https://wa.me/254791771087" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-cyan-200 hover:text-white"

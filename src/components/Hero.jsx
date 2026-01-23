@@ -27,7 +27,7 @@ function Hero() {
           </Link>
 
           <a 
-            href="/get-involved#sponsor" 
+            href="/donate" 
             className="btn-secondary text-lg"
           >
             Sponsor a Child
