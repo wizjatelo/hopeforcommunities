@@ -69,15 +69,15 @@ function GetInvolved() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
-                <div className="text-3xl font-bold">1,500+</div>
+                <div className="text-3xl font-bold">150+</div>
                 <div className="text-sm opacity-90">Children Supported</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
-                <div className="text-3xl font-bold">250+</div>
+                <div className="text-3xl font-bold">50+</div>
                 <div className="text-sm opacity-90">Active Volunteers</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
-                <div className="text-3xl font-bold">$2.5M+</div>
+                <div className="text-3xl font-bold">$20000 +</div>
                 <div className="text-sm opacity-90">Funds Raised</div>
               </div>
             </div>
