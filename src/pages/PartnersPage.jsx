@@ -20,7 +20,7 @@ const PartnersPage = () => {
       color: "from-red-50 to-red-100",
     },
     {
-      name: "Winners Chapel International Nyahera",
+      name: "Churches",
       description:
         "Working together on community outreach programs and spiritual support services for vulnerable populations.",
       icon: <Users className="w-12 h-12 text-purple-600" />,
